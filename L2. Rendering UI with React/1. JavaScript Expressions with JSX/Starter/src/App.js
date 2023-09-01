@@ -13,7 +13,14 @@ const App = () => {
   const aboutReact = (facts) =>
     `Release date: ${facts.releaseDate}. Language: ${facts.releaseDate}. License: ${facts.license}.`;
 
-  return <div className="container"></div>;
+  return (
+      <div className="container">
+        <img src={logo} alt={name}/>
+        <h1>{name} Framework</h1>
+        <text>{aboutReact(facts)}</text>
+
+      </div>
+  );
 };
 
 export default App;
