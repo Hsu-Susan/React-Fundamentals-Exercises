@@ -4,7 +4,15 @@ function ChildComponent() {
   const [color, setColor] = useState("red");
 
   useEffect(() => {
-    setTimeout(() => setColor("green"), 3000);
+    let isUnmounted = false;
+    setTimeout(() => {
+      if (!isUnmounted) {
+        setColor("green");
+      }
+    }, 3000);
+    return () => {
+      isUnmounted = true;
+    };
   });
 
   return <p style={{ color }}>{color}</p>;
